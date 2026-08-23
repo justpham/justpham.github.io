@@ -1,3 +1,25 @@
+:root {
+  --color-darkest: #22223b;
+  --color-dark: #4a4e69;
+  --color-muted: #9a8c98;
+  --color-rose: #c9ada7;
+  --color-lightest: #f2e9e4;
+
+  --color-bg: var(--color-lightest);
+  --color-text: var(--color-darkest);
+  --color-text-secondary: var(--color-dark);
+  --color-divider: var(--color-muted);
+  --color-accent: var(--color-dark);
+
+  --font-body: 'Actor', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
 header,
 main {
   max-width: 800px;
@@ -95,7 +117,7 @@ main {
 
 .education-school {
   display: inline-block;
-  color: #0a66c2;
+  color: var(--color-accent);
   font-weight: 600;
   text-decoration: none;
   margin-bottom: 0.25rem;
@@ -112,7 +134,7 @@ main {
 
 .education-meta {
   margin: 0 0 0.5rem;
-  color: #555;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
@@ -143,7 +165,7 @@ main {
   top: 0;
   bottom: -1.75rem;
   width: 2px;
-  background: #ddd;
+  background: var(--color-divider);
 }
 
 .timeline-item:last-child::before {
@@ -156,7 +178,7 @@ main {
   top: 0.15rem;
   width: 9.25rem;
   text-align: right;
-  color: #555;
+  color: var(--color-text-secondary);
   font-size: 0.85rem;
   white-space: nowrap;
 }
@@ -168,13 +190,13 @@ main {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #fff;
-  border: 2px solid #0a66c2;
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
   z-index: 1;
 }
 
 .timeline-item.is-current .timeline-marker {
-  background: #0a66c2;
+  background: var(--color-accent);
 }
 
 .timeline-item.is-upcoming .timeline-marker {
@@ -182,7 +204,7 @@ main {
 }
 
 .timeline-item.is-upcoming::before {
-  background: repeating-linear-gradient(to bottom, #ddd 0 4px, transparent 4px 8px);
+  background: repeating-linear-gradient(to bottom, var(--color-divider) 0 4px, transparent 4px 8px);
 }
 
 .timeline-card {
@@ -269,13 +291,15 @@ main {
 }
 
 .button-resume {
-  background-color: #b3261e;
+  background-color: var(--color-darkest);
 }
 
 .button-email {
-  background-color: #444;
+  background-color: var(--color-dark);
 }
 
+/* LinkedIn and GitHub keep their real brand colors, not the site palette,
+   so they stay instantly recognizable as those platforms' icons. */
 .button-linkedin {
   background-color: #0a66c2;
 }
