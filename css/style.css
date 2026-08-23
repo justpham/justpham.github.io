@@ -155,7 +155,24 @@
   opacity: 0.85;
 }
 
-.icon-resume {
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover,
+.button:focus-visible {
+  opacity: 0.85;
+}
+
+.button-resume {
   background-color: #b3261e;
 }
 
