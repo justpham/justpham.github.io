@@ -83,6 +83,10 @@
   object-fit: contain;
 }
 
+.icon-item i {
+  font-size: 48px;
+}
+
 .icon-button {
   display: inline-flex;
   align-items: center;
