@@ -12,6 +12,7 @@
   --color-accent: var(--color-dark);
 
   --font-body: 'Actor', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
 body {
@@ -306,4 +307,212 @@ main {
 
 .button-github {
   background-color: #181717;
+}
+
+.project-explorer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-tree {
+  flex: 0 0 30%;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.project-tree ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tree guide lines: drawn per item (rather than as characters, or as one
+   shared border on the list) so the vertical segment follows the item's
+   actual rendered height and stays connected even when a long project
+   name wraps to two lines. Each item gets a horizontal "elbow" tick
+   meeting its icon on the first line, plus a vertical segment running
+   its full height so it joins the next sibling's elbow below it ("├");
+   the last item in a list shortens its segment to stop right at its own
+   elbow instead of continuing past it ("└"). */
+.project-folder,
+.folder-files li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.project-folder::before,
+.folder-files li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 0.9rem;
+  height: 1px;
+  background: var(--color-divider);
+}
+
+.project-folder::after,
+.folder-files li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--color-divider);
+}
+
+.project-folder:last-child::after,
+.folder-files li:last-child::after {
+  height: 0.95rem;
+}
+
+.folder-files {
+  margin-left: 1.1rem;
+}
+
+.folder-toggle,
+.file-link {
+  display: flex;
+  gap: 0.4rem;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  padding: 0.3rem 0.25rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Folder names can wrap to two lines in the narrow tree column, so the
+   icon aligns to the top and is nudged down to meet the first line. */
+.folder-toggle {
+  align-items: flex-start;
+}
+
+.folder-toggle i {
+  margin-top: 0.2rem;
+}
+
+/* File names (README.md, etc.) are always one line, so simple vertical
+   centering lines the icon up with the text without any nudge to tune. */
+.file-link {
+  align-items: center;
+}
+
+.folder-toggle i,
+.file-link i {
+  color: var(--color-text-secondary);
+  width: 1em;
+}
+
+.file-link {
+  color: var(--color-text-secondary);
+}
+
+.file-link.is-active {
+  color: #fff;
+  font-weight: 600;
+  background: var(--color-accent);
+}
+
+.file-link.is-active i {
+  color: #fff;
+}
+
+.project-card-panel {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.project-title {
+  margin: 0 0 0.5rem;
+}
+
+.project-description {
+  margin: 0 0 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.project-tags:last-child {
+  margin-bottom: 0;
+}
+
+.project-tags li {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.project-tech li {
+  background: var(--color-dark);
+  color: #fff;
+}
+
+.project-topics li {
+  border: 1px solid var(--color-muted);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 700px) {
+  .project-explorer {
+    flex-direction: column;
+  }
+
+  .project-tree {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .project-tree > ul {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .project-folder {
+    flex-shrink: 0;
+    padding-left: 0;
+  }
+
+  .project-folder::before,
+  .project-folder::after {
+    display: none;
+  }
+
+  .folder-files {
+    display: none;
+  }
+
+  .folder-toggle {
+    white-space: nowrap;
+    border: 1px solid var(--color-divider);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .project-folder.is-open .folder-toggle {
+    background: var(--color-lightest);
+    box-shadow: inset 0 -2px 0 var(--color-accent);
+  }
+
+  .project-card-panel {
+    width: 100%;
+  }
 }

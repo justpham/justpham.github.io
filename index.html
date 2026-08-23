@@ -138,13 +138,128 @@
 
     <section id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>
-          <h3>Project name</h3>
-          <p>Project description.</p>
-          <a href="#">View project</a>
-        </li>
-      </ul>
+
+      <div class="project-explorer">
+        <nav class="project-tree" aria-label="Project files">
+          <ul>
+            <li class="project-folder is-open">
+              <button class="folder-toggle" aria-expanded="true">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                <span>jos-operating-system/</span>
+              </button>
+              <ul class="folder-files">
+                <li>
+                  <button class="file-link is-active" data-project="jos-operating-system">
+                    <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+                    <span>README.md</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li class="project-folder">
+              <button class="folder-toggle" aria-expanded="false">
+                <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                <span>cpa-side-channel-attack/</span>
+              </button>
+              <ul class="folder-files" hidden>
+                <li>
+                  <button class="file-link" data-project="cpa-side-channel-attack">
+                    <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+                    <span>README.md</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li class="project-folder">
+              <button class="folder-toggle" aria-expanded="false">
+                <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                <span>embedded-temperature-logger/</span>
+              </button>
+              <ul class="folder-files" hidden>
+                <li>
+                  <button class="file-link" data-project="embedded-temperature-logger">
+                    <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+                    <span>README.md</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li class="project-folder">
+              <button class="folder-toggle" aria-expanded="false">
+                <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                <span>http-server/</span>
+              </button>
+              <ul class="folder-files" hidden>
+                <li>
+                  <button class="file-link" data-project="http-server">
+                    <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+                    <span>README.md</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="project-card-panel">
+          <article class="project-card" id="project-jos-operating-system">
+            <h3 class="project-title">JOS Operating System</h3>
+            <p class="project-description">A mini-OS supporting user environments, multiple processors, and virtual memory. Connects directly to understanding how the processor works by interacting with registers and how software connects regular applications to the hardware.</p>
+            <ul class="project-tags project-tech">
+              <li>C</li>
+              <li>x86 Assembly</li>
+            </ul>
+            <ul class="project-tags project-topics">
+              <li>Operating Systems</li>
+              <li>Virtual Memory</li>
+              <li>Systems Programming</li>
+            </ul>
+          </article>
+
+          <article class="project-card" id="project-cpa-side-channel-attack" hidden>
+            <h3 class="project-title">CPA Side Channel Attack</h3>
+            <p class="project-description">A project to crack an AES-128 key by reading side channel power traces collected from a hardware chip. Involved heavy matrix computation on a large dataset, requiring optimizations to I/O performance and computation speed.</p>
+            <ul class="project-tags project-tech">
+              <li>Python</li>
+            </ul>
+            <ul class="project-tags project-topics">
+              <li>Security</li>
+              <li>Cryptography</li>
+              <li>Side-Channel Analysis</li>
+            </ul>
+          </article>
+
+          <article class="project-card" id="project-embedded-temperature-logger" hidden>
+            <h3 class="project-title">Embedded Temperature Logger</h3>
+            <p class="project-description">A simple logger reporting temperature and humidity. Architected a bare-metal system on an STM32 MCU and wrote drivers for an LCD screen and a sensor in C.</p>
+            <ul class="project-tags project-tech">
+              <li>C</li>
+              <li>STM32</li>
+            </ul>
+            <ul class="project-tags project-topics">
+              <li>Embedded Systems</li>
+              <li>Firmware</li>
+              <li>Device Drivers</li>
+            </ul>
+          </article>
+
+          <article class="project-card" id="project-http-server" hidden>
+            <h3 class="project-title">HTTP Server</h3>
+            <p class="project-description">An HTTP/1.1 server serving HTML webpages to users. Developed from scratch in C using Linux kernel features like connection sockets, epoll, and sendfile.</p>
+            <ul class="project-tags project-tech">
+              <li>C</li>
+              <li>Linux</li>
+            </ul>
+            <ul class="project-tags project-topics">
+              <li>Networking</li>
+              <li>Systems Programming</li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
