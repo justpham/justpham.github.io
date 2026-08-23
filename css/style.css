@@ -138,23 +138,6 @@
   font-size: 48px;
 }
 
-.icon-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 1.1rem;
-  text-decoration: none;
-}
-
-.icon-button:hover,
-.icon-button:focus-visible {
-  opacity: 0.85;
-}
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -176,14 +159,14 @@
   background-color: #b3261e;
 }
 
-.icon-email {
+.button-email {
   background-color: #444;
 }
 
-.icon-linkedin {
+.button-linkedin {
   background-color: #0a66c2;
 }
 
-.icon-github {
+.button-github {
   background-color: #181717;
 }
