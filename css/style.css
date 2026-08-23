@@ -137,49 +137,70 @@ main {
   padding: 0;
 }
 
+/* Date column, rail (line + marker), and card sit in a single flex row
+   instead of the old absolutely-positioned layout. The old approach fixed
+   the rail's horizontal offset with a hardcoded rem value sized for one
+   specific date-column font-size, which silently broke (text overlapping
+   the marker/card) the moment that font-size changed. Flex removes the
+   need for that number entirely: the date's width is intrinsic (`ch`,
+   which scales with the date's own font-size automatically), and the rail
+   simply falls wherever flex places it after the date, so nothing has to
+   be kept in sync by hand. */
 .timeline-item {
-  position: relative;
-  padding-left: 11.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .timeline-item + .timeline-item {
   margin-top: 1.75rem;
 }
 
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: 10.1rem;
-  top: 0;
-  bottom: -1.75rem;
-  width: 2px;
-  background: var(--color-divider);
-}
-
-.timeline-item:last-child::before {
-  bottom: 0.6rem;
-}
-
 .timeline-date {
-  position: absolute;
-  left: 0;
-  top: 0.15rem;
-  width: 9.25rem;
+  flex: 0 0 auto;
+  min-width: 20ch;
   text-align: right;
   color: var(--color-text-secondary);
   font-size: 1.275rem;
   white-space: nowrap;
 }
 
+/* The rail stretches to the item's full height (matching the old item's
+   own box) so its line can still reach into the gap below via a negative
+   `bottom`, but its horizontal position is now just "wherever it sits in
+   the flex row" — always centered under its own fixed-width box. */
+.timeline-rail {
+  position: relative;
+  align-self: stretch;
+  flex: 0 0 14px;
+  width: 14px;
+}
+
+.timeline-rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: -1.75rem;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--color-divider);
+}
+
+.timeline-item:last-child .timeline-rail::before {
+  bottom: 0.6rem;
+}
+
 .timeline-marker {
   position: absolute;
-  left: 9.75rem;
-  top: 0.15rem;
+  left: 50%;
+  top: 50%;
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: var(--color-bg);
   border: 2px solid var(--color-accent);
+  transform: translate(-50%, -50%);
   z-index: 1;
 }
 
@@ -191,7 +212,7 @@ main {
   border-style: dashed;
 }
 
-.timeline-item.is-upcoming::before {
+.timeline-item.is-upcoming .timeline-rail::before {
   background: repeating-linear-gradient(to bottom, var(--color-divider) 0 4px, transparent 4px 8px);
 }
 
@@ -199,6 +220,8 @@ main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .timeline-logo {
@@ -224,21 +247,8 @@ main {
 }
 
 @media (max-width: 480px) {
-  .timeline-item {
-    padding-left: 8.75rem;
-  }
-
-  .timeline-item::before {
-    left: 7.6rem;
-  }
-
   .timeline-date {
-    width: 7rem;
     font-size: 1.08rem;
-  }
-
-  .timeline-marker {
-    left: 7.25rem;
   }
 }
 
