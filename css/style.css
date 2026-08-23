@@ -49,14 +49,22 @@ main {
 
 #hero-name {
   margin: 0;
+  font-size: clamp(2.25rem, 2rem + 2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
 }
 
 #hero-headline {
   margin: 0.25rem 0 1rem;
+  font-size: clamp(1.25rem, 1.1rem + 1vw, 1.5rem);
+  font-weight: 400;
+  color: var(--color-text-secondary);
 }
 
 #hero-bio {
   margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 #hero-links {
@@ -281,7 +289,7 @@ main {
   padding: 0.5rem 1rem;
   border-radius: 999px;
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
 }
