@@ -1,35 +1,35 @@
-.about-layout {
+.hero-layout {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 1.5rem;
 }
 
-#about-photo {
+#hero-photo {
   width: 200px;
   height: 200px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-.about-info {
+.hero-info {
   flex: 1;
   min-width: 200px;
 }
 
-#about-name {
+#hero-name {
   margin: 0;
 }
 
-#about-headline {
+#hero-headline {
   margin: 0.25rem 0 1rem;
 }
 
-#about-bio {
+#hero-bio {
   margin-bottom: 1rem;
 }
 
-#about-links {
+#hero-links {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
