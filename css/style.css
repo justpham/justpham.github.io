@@ -58,6 +58,53 @@
   margin: 0 0 0.75rem;
 }
 
+.education-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.education-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.education-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.education-school {
+  display: inline-block;
+  color: #0a66c2;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}
+
+.education-school:hover,
+.education-school:focus-visible {
+  text-decoration: underline;
+}
+
+.education-degree {
+  margin: 0 0 0.25rem;
+}
+
+.education-meta {
+  margin: 0 0 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.education-activities {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
 .icon-list {
   display: flex;
   flex-wrap: wrap;
