@@ -426,7 +426,8 @@ main {
 }
 
 .folder-toggle,
-.file-link {
+.file-link,
+.link-file {
   display: flex;
   gap: 0.4rem;
   width: 100%;
@@ -438,6 +439,7 @@ main {
   padding: 0.3rem 0.25rem;
   cursor: pointer;
   border-radius: 4px;
+  text-decoration: none;
 }
 
 /* Folder names can wrap to two lines in the narrow tree column, so the
@@ -452,24 +454,29 @@ main {
 
 /* File names (README.md, etc.) are always one line, so simple vertical
    centering lines the icon up with the text without any nudge to tune. */
-.file-link {
+.file-link,
+.link-file {
   align-items: center;
 }
 
 .folder-toggle i,
-.file-link i {
+.file-link i,
+.link-file i {
   color: var(--color-rose);
   width: 1em;
 }
 
-.file-link {
+.file-link,
+.link-file {
   color: var(--color-rose);
 }
 
 .folder-toggle:hover,
 .folder-toggle:focus-visible,
 .file-link:hover,
-.file-link:focus-visible {
+.file-link:focus-visible,
+.link-file:hover,
+.link-file:focus-visible {
   background: rgba(255, 255, 255, 0.1);
 }
 
