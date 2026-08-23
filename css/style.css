@@ -114,19 +114,16 @@ main {
   margin-bottom: 0;
 }
 
-.about-education,
-.about-experience,
+.about-timeline,
 .about-tech {
   margin-top: 2rem;
 }
 
-.about-education,
-.about-experience {
+.about-timeline {
   font-size: 1.65rem;
 }
 
-.about-education h3,
-.about-experience h3,
+.about-timeline h3,
 .about-tech h3 {
   margin: 0 0 0.75rem;
 }
