@@ -28,10 +28,21 @@ main {
   padding: 0 1.5rem;
 }
 
+#about,
+#projects {
+  font-size: 1.5em;
+}
+
+#about {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-divider);
+}
+
 .hero-layout {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 1.5rem;
 }
 
@@ -42,9 +53,28 @@ main {
   flex-shrink: 0;
 }
 
+/* Fallback for no-JS: js/hero-photo.js detects the actual moment the
+   hero-links row wraps to a second line and toggles this class (plus
+   swaps in the taller profile-long.jpg) precisely when that happens,
+   since that point doesn't line up with any fixed viewport width. This
+   media query approximates the same threshold for when JS isn't
+   available. */
+@media (max-width: 699px) {
+  #hero-photo {
+    height: 100%;
+  }
+}
+
+.hero-layout.is-links-wrapped #hero-photo {
+  height: 100%;
+}
+
 .hero-info {
   flex: 1;
   min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #hero-name {
@@ -55,15 +85,15 @@ main {
 }
 
 #hero-headline {
-  margin: 0.25rem 0 1rem;
+  margin: 0;
   font-size: clamp(1.25rem, 1.1rem + 1vw, 1.5rem);
   font-weight: 400;
   color: var(--color-text-secondary);
 }
 
 #hero-bio {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin: 0;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
@@ -92,7 +122,7 @@ main {
 
 .about-education,
 .about-experience {
-  font-size: 1.1rem;
+  font-size: 1.65rem;
 }
 
 .about-education h3,
@@ -144,7 +174,7 @@ main {
 .education-meta {
   margin: 0 0 0.5rem;
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
+  font-size: 1.35rem;
 }
 
 .education-activities {
@@ -188,7 +218,7 @@ main {
   width: 9.25rem;
   text-align: right;
   color: var(--color-text-secondary);
-  font-size: 0.85rem;
+  font-size: 1.275rem;
   white-space: nowrap;
 }
 
@@ -245,7 +275,7 @@ main {
 
   .timeline-date {
     width: 7rem;
-    font-size: 0.72rem;
+    font-size: 1.08rem;
   }
 
   .timeline-marker {
@@ -269,7 +299,7 @@ main {
   gap: 0.5rem;
   width: 80px;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 1.275rem;
 }
 
 .icon-item img {
@@ -279,7 +309,7 @@ main {
 }
 
 .icon-item i {
-  font-size: 48px;
+  font-size: 72px;
 }
 
 .button {
@@ -289,7 +319,7 @@ main {
   padding: 0.5rem 1rem;
   border-radius: 999px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-decoration: none;
 }
@@ -366,7 +396,7 @@ main {
   margin-left: 0.4rem;
   color: rgba(242, 233, 228, 0.55);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 1.17rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -375,7 +405,7 @@ main {
 .project-tree {
   flex: 0 0 30%;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 1.275rem;
 }
 
 .project-tree ul {
@@ -531,7 +561,7 @@ main {
 }
 
 .project-tags li {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
 }
