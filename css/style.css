@@ -65,6 +65,10 @@
   gap: 1rem;
 }
 
+.education-layout + .education-layout {
+  margin-top: 1.5rem;
+}
+
 .education-icon {
   width: 64px;
   height: 64px;
@@ -149,6 +153,10 @@
 .icon-button:hover,
 .icon-button:focus-visible {
   opacity: 0.85;
+}
+
+.icon-resume {
+  background-color: #b3261e;
 }
 
 .icon-email {
