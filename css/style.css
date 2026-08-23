@@ -21,16 +21,105 @@ body {
   font-family: var(--font-body);
 }
 
-header,
 main {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+#site-name {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+  color: var(--color-accent);
+  background: rgba(34, 34, 59, 0.08);
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  header nav ul {
+    justify-content: center;
+  }
+
+  header nav a {
+    font-size: 0.85rem;
+  }
+}
+
 #about,
 #projects {
   font-size: 1.5em;
+}
+
+#hero,
+#about,
+#projects,
+#experience-education {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (max-width: 560px) {
+  #hero,
+  #about,
+  #projects,
+  #experience-education {
+    scroll-margin-top: 8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  #hero,
+  #about,
+  #projects,
+  #experience-education {
+    scroll-margin-top: 10.5rem;
+  }
+}
+
+#hero {
+  padding-top: 2.5rem;
 }
 
 #about {
@@ -627,4 +716,22 @@ main {
   .project-card-panel {
     width: 100%;
   }
+}
+
+footer {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--color-text-secondary);
+}
+
+footer a:hover,
+footer a:focus-visible {
+  color: var(--color-accent);
 }
