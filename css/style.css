@@ -131,57 +131,6 @@ main {
   margin: 0 0 0.75rem;
 }
 
-.education-layout {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.education-layout + .education-layout {
-  margin-top: 1.5rem;
-}
-
-.education-icon {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.education-info {
-  flex: 1;
-  min-width: 200px;
-}
-
-.education-school {
-  display: inline-block;
-  color: var(--color-accent);
-  font-weight: 600;
-  text-decoration: none;
-  margin-bottom: 0.25rem;
-}
-
-.education-school:hover,
-.education-school:focus-visible {
-  text-decoration: underline;
-}
-
-.education-degree {
-  margin: 0 0 0.25rem;
-}
-
-.education-meta {
-  margin: 0 0 0.5rem;
-  color: var(--color-text-secondary);
-  font-size: 1.35rem;
-}
-
-.education-activities {
-  margin: 0;
-  padding-left: 1.25rem;
-}
-
 .timeline {
   list-style: none;
   margin: 0;
@@ -262,6 +211,16 @@ main {
 .timeline-title {
   margin: 0;
   font-weight: normal;
+}
+
+.timeline-link {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.timeline-link:hover,
+.timeline-link:focus-visible {
+  text-decoration: underline;
 }
 
 @media (max-width: 480px) {
