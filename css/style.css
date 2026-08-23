@@ -38,6 +38,51 @@
   padding: 0;
 }
 
+#about-bio p {
+  margin: 0 0 1rem;
+}
+
+#about-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.about-education,
+.about-companies,
+.about-tech {
+  margin-top: 2rem;
+}
+
+.about-education h3,
+.about-companies h3,
+.about-tech h3 {
+  margin: 0 0 0.75rem;
+}
+
+.icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 80px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.icon-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
 .icon-button {
   display: inline-flex;
   align-items: center;
