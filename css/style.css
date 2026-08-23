@@ -444,57 +444,19 @@ header nav a:focus-visible {
   margin-top: 1.5rem;
 }
 
-/* Both panes of the explorer are styled as terminal windows sharing this
-   chrome: a dark box with a titlebar (traffic-light dots + a path label). */
+/* Both panes sit on the page background and are set apart by a border only
+   (no fill of their own, no titlebar chrome) — the same divider-as-boundary
+   language the header/footer/about-section already use elsewhere. */
 .project-tree,
 .project-card-panel {
-  background: var(--color-darkest);
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
   border-radius: 8px;
   overflow: hidden;
 }
 
-.terminal-titlebar {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 0.75rem;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.terminal-titlebar .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.dot-red {
-  background: #ff5f56;
-}
-
-.dot-yellow {
-  background: #ffbd2e;
-}
-
-.dot-green {
-  background: #27c93f;
-}
-
-.terminal-path {
-  flex: 1;
-  min-width: 0;
-  margin-left: 0.4rem;
-  color: rgba(242, 233, 228, 0.55);
-  font-family: var(--font-mono);
-  font-size: 1.17rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .project-tree {
   flex: 0 0 30%;
-  font-family: var(--font-mono);
   font-size: 1.275rem;
 }
 
@@ -505,7 +467,7 @@ header nav a:focus-visible {
 }
 
 .project-tree > ul {
-  padding: 0.75rem;
+  padding: 1rem;
 }
 
 /* Tree guide lines: drawn per item (rather than as characters, or as one
@@ -561,13 +523,24 @@ header nav a:focus-visible {
   width: 100%;
   background: none;
   border: none;
-  color: var(--color-lightest);
   font: inherit;
   text-align: left;
   padding: 0.3rem 0.25rem;
   cursor: pointer;
   border-radius: 4px;
   text-decoration: none;
+}
+
+.folder-toggle {
+  color: var(--color-text);
+}
+
+/* File rows (README.md, github.link) render in monospace to read as
+   filenames; folder names stay in the body font — they're plain labels. */
+.file-link,
+.link-file {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
 }
 
 /* Folder names can wrap to two lines in the narrow tree column, so the
@@ -590,13 +563,8 @@ header nav a:focus-visible {
 .folder-toggle i,
 .file-link i,
 .link-file i {
-  color: var(--color-rose);
+  color: var(--color-text-secondary);
   width: 1em;
-}
-
-.file-link,
-.link-file {
-  color: var(--color-rose);
 }
 
 .folder-toggle:hover,
@@ -605,7 +573,7 @@ header nav a:focus-visible {
 .file-link:focus-visible,
 .link-file:hover,
 .link-file:focus-visible {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(34, 34, 59, 0.06);
 }
 
 .file-link.is-active {
@@ -624,17 +592,17 @@ header nav a:focus-visible {
 }
 
 .project-card-body {
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem;
 }
 
 .project-title {
   margin: 0 0 0.5rem;
-  color: var(--color-lightest);
+  color: var(--color-text);
 }
 
 .project-description {
   margin: 0 0 1rem;
-  color: rgba(242, 233, 228, 0.8);
+  color: var(--color-text-secondary);
 }
 
 .project-tags {
@@ -663,7 +631,7 @@ header nav a:focus-visible {
 
 .project-topics li {
   border: 1px solid var(--color-muted);
-  color: var(--color-rose);
+  color: var(--color-text-secondary);
 }
 
 @media (max-width: 700px) {
