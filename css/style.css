@@ -17,6 +17,8 @@
 
   --font-body: 'Actor', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  --content-width: 1100px;
 }
 
 body {
@@ -30,7 +32,7 @@ body {
 }
 
 main {
-  max-width: 800px;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -44,7 +46,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
-  max-width: 800px;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 1rem 1.5rem;
   background: var(--color-bg);
@@ -97,18 +99,16 @@ header nav a:focus-visible {
 }
 
 #about,
-#projects {
+#projects,
+#career-journey {
   font-size: 1.5em;
-}
-
-#projects {
-  padding-bottom: 3rem;
 }
 
 #hero,
 #about,
 #projects,
-#experience-education {
+#experience-education,
+#career-journey {
   scroll-margin-top: 5.5rem;
 }
 
@@ -116,7 +116,8 @@ header nav a:focus-visible {
   #hero,
   #about,
   #projects,
-  #experience-education {
+  #experience-education,
+  #career-journey {
     scroll-margin-top: 8rem;
   }
 }
@@ -125,7 +126,8 @@ header nav a:focus-visible {
   #hero,
   #about,
   #projects,
-  #experience-education {
+  #experience-education,
+  #career-journey {
     scroll-margin-top: 10.5rem;
   }
 }
@@ -138,6 +140,20 @@ header nav a:focus-visible {
   margin-top: 3rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--color-divider);
+}
+
+#career-journey {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-divider);
+}
+
+/* Projects is the last section again now that Career Journey moved
+   above it — this is the same before-footer breathing room #career-journey
+   used to carry when it held that spot. */
+#projects {
+  padding-bottom: 3rem;
 }
 
 .hero-layout {
@@ -710,8 +726,128 @@ header nav a:focus-visible {
   }
 }
 
+#career-journey-intro {
+  margin: 0.5rem 0 0;
+  font-size: 0.7em;
+  color: var(--color-text-secondary);
+}
+
+/* Mirrors .timeline-legend's swatch-plus-label pattern (see the About
+   section) so both places on the page explain color the same way. A
+   rounded-square swatch (rather than a round dot, like the journey
+   markers themselves) reads as "an area on the map" — this legend is
+   about the highlighted countries, not the point markers. */
+.career-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  font-size: 0.8em;
+  color: var(--color-text-secondary);
+}
+
+.career-map-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.career-map-legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--color-lavender-pale);
+  border: 1px solid var(--color-lavender-classic);
+  flex-shrink: 0;
+}
+
+.career-map-legend-swatch.is-visited {
+  background: var(--color-lavender);
+  border-color: var(--color-lavender-classic);
+}
+
+/* Same divider-as-boundary panel treatment as .project-tree/.project-card-panel. */
+.career-map-panel {
+  margin-top: 1.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#career-map {
+  width: 100%;
+  height: 520px;
+}
+
+/* Recolor the library's default blue/black chrome to match the site palette. */
+#career-map .jvm-tooltip {
+  background-color: var(--color-darkest);
+  font-family: var(--font-body);
+}
+
+/* Enlarged from the library's default 15x15px — a better touch/click
+   target, and legible at a glance rather than a tiny corner nub. */
+#career-map .jvm-zoom-btn {
+  background-color: var(--color-dark);
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 6px;
+}
+
+#career-map .jvm-zoom-btn:hover {
+  background-color: var(--color-darkest);
+}
+
+#career-map .jvm-zoom-btn.jvm-zoomin {
+  top: 10px;
+}
+
+#career-map .jvm-zoom-btn.jvm-zoomout {
+  top: 48px;
+}
+
+/* Not part of jsVectorMap — a plain button appended alongside its zoom
+   controls (js/career-map.js) that calls setFocus back to INITIAL_FOCUS,
+   styled to match the enlarged zoom buttons above/below it. */
+.career-map-reset-btn {
+  position: absolute;
+  top: 86px;
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-dark);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.career-map-reset-btn:hover {
+  background-color: var(--color-darkest);
+}
+
+@media (max-width: 560px) {
+  #career-map {
+    height: 320px;
+  }
+}
+
 footer {
-  max-width: 800px;
+  max-width: var(--content-width);
   margin: 3rem auto 0;
   padding: 1.5rem;
   text-align: center;

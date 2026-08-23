@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="js/vendor/jsvectormap/jsvectormap.min.css">
 </head>
 <body>
   <header>
@@ -20,6 +21,7 @@
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#experience-education">Experience &amp; Education</a></li>
+        <li><a href="#career-journey">Career Journey</a></li>
         <li><a href="#projects">Projects</a></li>
       </ul>
     </nav>
@@ -140,6 +142,18 @@
         </ul>
       </div>
       -->
+    </section>
+
+    <section id="career-journey">
+      <h2>Career Journey</h2>
+      <p id="career-journey-intro">Places I've lived, studied, and worked, connected in the order I moved through them.</p>
+      <ul class="career-map-legend">
+        <li><span class="career-map-legend-swatch is-visited" aria-hidden="true"></span>Visited country</li>
+        <li><span class="career-map-legend-swatch" aria-hidden="true"></span>Not visited</li>
+      </ul>
+      <div class="career-map-panel">
+        <div id="career-map" aria-label="World map. Highlighted countries visited: Vietnam, United States, Canada, Puerto Rico, Japan, Greece, Italy, and Turkey. Markers, in chronological order lived: Honolulu, Hawaii; the Portland Metro Area and Corvallis, Oregon (visited repeatedly, alternating with each internship); Austin, Texas; Seattle, Washington; and the San Francisco Bay Area, California."></div>
+      </div>
     </section>
 
     <section id="projects">
@@ -289,5 +303,8 @@
 
   <script src="js/project-explorer.js" defer></script>
   <script src="js/hero-photo.js" defer></script>
+  <script src="js/vendor/jsvectormap/jsvectormap.min.js" defer></script>
+  <script src="js/vendor/jsvectormap/world.js" defer></script>
+  <script src="js/career-map.js" defer></script>
 </body>
 </html>
