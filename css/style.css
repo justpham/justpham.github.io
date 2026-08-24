@@ -21,6 +21,15 @@
   --content-width: 1100px;
 }
 
+/* Safari's rubber-band overscroll at the top/bottom of the page reveals
+   whatever background the html element has — if that's left transparent
+   (the default), the sticky header appears to not reach the top of the
+   screen during the bounce, since white shows above it instead of the
+   page background. */
+html {
+  background-color: var(--color-bg);
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -87,6 +96,18 @@ header nav a:focus-visible {
   text-decoration: underline;
 }
 
+/* Below this width, header stays 80%-width/centered like main/footer
+   (see DESIGN.md) but the sticky bar reads as broken on a phone — its
+   background/bottom border stop short of the screen edges instead of
+   forming a clean full-width strip. Full-bleed the header itself on
+   mobile; its own padding keeps the name/nav inset the same as before. */
+@media (max-width: 700px) {
+  header {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 @media (max-width: 480px) {
   header {
     justify-content: center;
@@ -106,6 +127,16 @@ header nav a:focus-visible {
 #projects,
 #career-journey {
   font-size: 1.5em;
+}
+
+/* 1.5em reads fine against the wide desktop column, but on a narrow
+   phone viewport it leaves only a handful of words per line. */
+@media (max-width: 600px) {
+  #about,
+  #projects,
+  #career-journey {
+    font-size: 1.15em;
+  }
 }
 
 #hero,
@@ -185,6 +216,22 @@ header nav a:focus-visible {
 @media (max-width: 699px) {
   #hero-photo {
     height: 100%;
+  }
+
+  /* Once the photo and info column stack, left-aligned text sits flush
+     against one side under a centered photo — center everything so the
+     stacked layout reads as one deliberate column. */
+  .hero-layout {
+    justify-content: center;
+  }
+
+  .hero-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  #hero-links {
+    justify-content: center;
   }
 }
 
@@ -394,6 +441,11 @@ header nav a:focus-visible {
 .timeline-title {
   margin: 0;
   font-weight: normal;
+  /* Without this, the title (a flex item inside .timeline-card) refuses
+     to shrink below its content's natural width — flexbox's min-width:
+     auto default — and instead overflows past the card's edge instead
+     of wrapping. */
+  min-width: 0;
 }
 
 .timeline-link {
@@ -406,8 +458,21 @@ header nav a:focus-visible {
   text-decoration: underline;
 }
 
+/* Below this width there isn't room for date + rail + card side by side
+   at a readable size — the date column alone (min-width: 20ch) was
+   leaving the card only a few px, forcing its text to overflow off the
+   right edge of the screen instead of wrapping. Stack the date on its
+   own line above the rail/card instead of narrowing it further. */
 @media (max-width: 480px) {
+  .timeline-item {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+  }
+
   .timeline-date {
+    flex: 1 1 100%;
+    min-width: 0;
+    text-align: left;
     font-size: 1.08rem;
   }
 }
