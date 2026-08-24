@@ -32,6 +32,8 @@ body {
 }
 
 main {
+  box-sizing: border-box;
+  width: 80%;
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -46,6 +48,8 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
+  box-sizing: border-box;
+  width: 80%;
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 1rem 1.5rem;
@@ -854,6 +858,8 @@ header nav a:focus-visible {
 }
 
 footer {
+  box-sizing: border-box;
+  width: 80%;
   max-width: var(--content-width);
   margin: 3rem auto 0;
   padding: 1.5rem;
