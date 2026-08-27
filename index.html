@@ -300,7 +300,7 @@
           <article class="project-card" id="project-jos-operating-system">
             <div class="project-card-body">
               <h3 class="project-title">JOS Operating System</h3>
-              <p class="project-description">A mini-OS supporting user environments, multiple processors, and virtual memory. Connects directly to understanding how the processor works by interacting with registers and how software connects regular applications to the hardware.</p>
+              <p class="project-description">A mini-OS built solo for Oregon State's OS 2 course, adapted from MIT's 6.828 JOS labs. Implemented virtual memory, user environments, page fault handling, fork/exec, and multiprocessor support from the ground up, connecting directly to how the processor works by interacting with registers and how software bridges regular applications to the underlying hardware.</p>
               <ul class="project-tags project-tech">
                 <li>C</li>
                 <li>x86 Assembly</li>
@@ -316,7 +316,7 @@
           <article class="project-card" id="project-cpa-side-channel-attack" hidden>
             <div class="project-card-body">
               <h3 class="project-title">CPA Side Channel Attack</h3>
-              <p class="project-description">A project to crack an AES-128 key by reading side channel power traces collected from a hardware chip. Involved heavy matrix computation on a large dataset, requiring optimizations to I/O performance and computation speed.</p>
+              <p class="project-description">A course project to recover an AES-128 key via correlation power analysis, using power traces captured from an FPGA performing the encryption. The 8GB trace dataset made data loading the real bottleneck, so most of the effort went into I/O, storing and streaming traces with Zarr, alongside vectorized, cache-aware matrix computation. The optimized pipeline recovered the full key in under 2 minutes.</p>
               <ul class="project-tags project-tech">
                 <li>Python</li>
               </ul>
@@ -331,7 +331,7 @@
           <article class="project-card" id="project-embedded-temperature-logger" hidden>
             <div class="project-card-body">
               <h3 class="project-title">Embedded Temperature Logger</h3>
-              <p class="project-description">A simple logger reporting temperature and humidity. Architected a bare-metal system on an STM32 MCU and wrote drivers for an LCD screen and a sensor in C.</p>
+              <p class="project-description">A personal project to build a bare-metal temperature and humidity logger on an STM32 Discovery board. Wrote the DHT-11 sensor and ST7796 LCD drivers entirely from their datasheets in C, with no HAL or RTOS underneath. Still an active project, with more features on the way.</p>
               <ul class="project-tags project-tech">
                 <li>C</li>
                 <li>STM32</li>
@@ -347,7 +347,7 @@
           <article class="project-card" id="project-http-server" hidden>
             <div class="project-card-body">
               <h3 class="project-title">HTTP Server</h3>
-              <p class="project-description">An HTTP/1.1 server serving HTML webpages to users. Developed from scratch in C using Linux kernel features like connection sockets, epoll, and sendfile.</p>
+              <p class="project-description">A personal project to learn low-level networking: an HTTP/1.1 server built from scratch in C using Linux kernel features like connection sockets, epoll, and sendfile. Supports multiple HTTP methods, keep-alive connections, proper status codes, and serving static files, and was benchmarked for requests/sec to validate the epoll-based design under load.</p>
               <ul class="project-tags project-tech">
                 <li>C</li>
                 <li>Linux</li>
