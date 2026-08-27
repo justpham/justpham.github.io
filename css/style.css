@@ -166,7 +166,7 @@ header nav a:focus-visible {
   #projects,
   #experience-education,
   #career-journey {
-    scroll-margin-top: 10.5rem;
+    scroll-margin-top: 11.5rem;
   }
 }
 
@@ -1088,10 +1088,32 @@ header nav a:focus-visible {
   height: 520px;
 }
 
-/* Recolor the library's default blue/black chrome to match the site palette. */
-#career-map .jvm-tooltip {
+/* Recolor the library's default blue/black chrome to match the site palette.
+   jsVectorMap appends .jvm-tooltip directly to <body>, not inside the map
+   container, so `#career-map .jvm-tooltip` never matches it — `body
+   .jvm-tooltip` instead, both for accuracy and so this outranks the
+   vendor CSS's same-specificity `.jvm-tooltip` rule (which loads after
+   this stylesheet in index.html and would otherwise win the cascade). */
+body .jvm-tooltip {
   background-color: var(--color-darkest);
   font-family: var(--font-body);
+  /* Overrides the library default (nowrap, sized for a one-line label) —
+     tooltips here can carry a multi-bullet STOP_DETAILS list (see
+     js/career-map.js), which needs room to wrap and stack. */
+  white-space: normal;
+  max-width: 220px;
+  line-height: 1.4;
+  padding: 0.5rem 0.65rem;
+}
+
+.jvm-tooltip strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.career-map-tooltip-list {
+  margin: 0;
+  padding-left: 1.1rem;
 }
 
 /* Enlarged from the library's default 15x15px — a better touch/click

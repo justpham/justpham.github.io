@@ -30,6 +30,28 @@ const journey = [
   { name: 'San Francisco Bay Area, CA', coords: [37.5630, -122.3255] },
 ];
 
+// A few bullet points of context per stop, shown under the name in the
+// marker's hover tooltip. Keyed by the same `name` used in `journey`/
+// `markers` above, so a stop with nothing to add here just shows its name.
+const STOP_DETAILS = {
+  'Honolulu, HI': ['Born here'],
+  'Portland Metro Area, OR': [
+    'Hometown',
+    'Worked at Avocor in Wilsonville',
+    'Worked at Intel in Hillsboro',
+  ],
+  'Corvallis, OR': [
+    'B.S. in Computer Science (Sep 2021 &ndash; Dec 2025)',
+    'M.Eng. in Computer Science (Sep 2024 &ndash; Dec 2026)',
+  ],
+  'Seattle, WA': ['Worked at Qumulo'],
+  'Austin, TX': [
+    'Worked at AMD (Jan &ndash; Aug 2025)',
+    'Worked at AMD (Jun &ndash; Sep 2026)',
+  ],
+  'San Francisco Bay Area, CA': ['Worked at Skydio'],
+};
+
 // Countries visited (highlighted), by ISO 3166-1 alpha-2 code — everything
 // else on the map renders in the plain "not visited" region style. Puerto
 // Rico (PR) is its own path in this map data despite being a US territory,
@@ -111,6 +133,22 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     markers,
     lines,
+    // Replaces the tooltip's plain name text with the name plus its
+    // STOP_DETAILS bullets (if any) as a small list, rather than leaving
+    // it at jsVectorMap's default plain-text tooltip. `code` here is the
+    // marker's index (as a string) into `markers`/`uniqueStops` — the two
+    // arrays share an order since `markers` was mapped directly from
+    // `uniqueStops` above.
+    onMarkerTooltipShow(event, tooltip, code) {
+      const stop = uniqueStops[Number(code)];
+      if (!stop) return;
+
+      const details = STOP_DETAILS[stop.name] || [];
+      const list = details.length
+        ? `<ul class="career-map-tooltip-list">${details.map((d) => `<li>${d}</li>`).join('')}</ul>`
+        : '';
+      tooltip.text(`<strong>${stop.name}</strong>${list}`, true);
+    },
   });
 
   // Not one of jsVectorMap's own controls — a plain button appended next
