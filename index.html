@@ -131,53 +131,67 @@
       <dialog class="experience-dialog" id="experience-intel" aria-labelledby="experience-intel-title">
         <button type="button" class="experience-dialog-close" aria-label="Close">&times;</button>
         <h3 class="experience-dialog-title" id="experience-intel-title">Intel &middot; System Software Engineer Intern (Apr &ndash; Sep 2024)</h3>
-        <div class="experience-dialog-photos">
-          <img src="assets/images/experiences/intel-2024-0.jpg" alt="Holding up an Intel employee badge with my name and photo on it">
-          <img src="assets/images/experiences/intel-2024-1.jpg" alt="Sitting at my cubicle desk drinking coffee, with a whiteboard of algorithm notes behind me">
-          <img src="assets/images/experiences/intel-2024-2.jpg" alt="A group hiking to a mountaintop overlook above a lake in the Pacific Northwest">
-        </div>
         <div class="experience-dialog-summary">
-          <p>TODO: write a short summary of the Intel internship.</p>
+          <p>I worked on the Client BIOS team at Intel, helping with documentation flows for developers. This was one of my first experiences at a company building software. I got this role through my participation in the MECOP program, which is offered to OSU (and other schools') students, and it happened that my interest in low-level software caught the attention of my manager at the time.</p>
+          <p>Throughout my internship, I was involved in developing a tool to map out the different interactions between drivers and various other modules during the early stages of platform initialization. This project had many different subparts, which had me developing Python programs including an INI file parser, a UML diagram builder, and various optimizations to compute the different paths and information from a large codebase. I also learned more about embedded systems, reading and learning about different concepts and IPs like ACPI, PCI, NBIO, and FCH.</p>
+          <p>Outside of work, I met a lot of different people I still consider myself close to. I actively played volleyball with other full-timers and went hiking with some of my fellow interns. I value the mentorship I gained during these six months and the connections I made during my time at Intel.</p>
+        </div>
+        <div class="experience-dialog-photos">
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/intel-2024-0.jpg" alt="Holding up an Intel employee badge with my name and photo on it"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/intel-2024-1.jpg" alt="Sitting at my cubicle desk drinking coffee, with a whiteboard of algorithm notes behind me"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/intel-2024-2.jpg" alt="A group hiking to a mountaintop overlook above a lake in the Pacific Northwest"></button>
         </div>
       </dialog>
 
       <dialog class="experience-dialog" id="experience-amd-1" aria-labelledby="experience-amd-1-title">
         <button type="button" class="experience-dialog-close" aria-label="Close">&times;</button>
         <h3 class="experience-dialog-title" id="experience-amd-1-title">AMD &middot; System Software Engineer Intern (Jan &ndash; Aug 2025)</h3>
-        <div class="experience-dialog-photos">
-          <img src="assets/images/experiences/amd-2025-0.jpg" alt="Eating tacos with friends at a taqueria table">
-          <img src="assets/images/experiences/amd-2025-1.jpg" alt="Standing with AMD CEO Lisa Su at an AMD Quarterly WorldCast event">
-          <img src="assets/images/experiences/amd-2025-2.jpg" alt="My AMD Austin employee badge">
-        </div>
         <div class="experience-dialog-summary">
-          <p>TODO: write a short summary of the 2025 AMD internship.</p>
+          <p>I moved to Austin during the winter term of my 4th year in college to pursue an internship at AMD that lasted until August. I was hired onto AMD's Client BIOS team to improve the testing and validation infrastructure being built out for AMD's firmware and software.</p>
+          <p>Initially, I wrote unit tests for code in the Data Fabric and Core IPs, but later expanded my scope to help build out test infrastructure for AMD's AGESA code, which initializes the silicon we design in-house. This let me collaborate cross-functionally with my team, the DevOps team, and the larger BIOS (Client and Server) teams. I helped enable GCC as a viable build for unit tests, letting developers work in Linux, and helped speed up CI/CD test runners from 4 hours to 10 minutes by profiling and fixing download speeds and parallelizing execution. I also shipped the first MCP server to help developers interact with their codebase and write unit tests more effectively.</p>
+          <p>Overall, this internship made me a more collaborative engineer and taught me how to take initiative in a large organization.</p>
+        </div>
+        <div class="experience-dialog-photos">
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/amd-2025-0.jpg" alt="Eating tacos with friends at a taqueria table"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/amd-2025-1.jpg" alt="Standing with AMD CEO Lisa Su at an AMD Quarterly WorldCast event"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/amd-2025-2.jpg" alt="My AMD Austin employee badge"></button>
         </div>
       </dialog>
 
       <dialog class="experience-dialog" id="experience-qumulo" aria-labelledby="experience-qumulo-title">
         <button type="button" class="experience-dialog-close" aria-label="Close">&times;</button>
         <h3 class="experience-dialog-title" id="experience-qumulo-title">Qumulo &middot; Software Engineer Intern (Mar &ndash; Jun 2026)</h3>
-        <div class="experience-dialog-photos">
-          <img src="assets/images/experiences/qumulo-2026-0.jpg" alt="Evening view of the Seattle skyline and a boat on Lake Union">
-          <img src="assets/images/experiences/qumulo-2026-1.jpg" alt="A seagull perched on an office window ledge overlooking Seattle">
-          <img src="assets/images/experiences/qumulo-2026-2.jpg" alt="A pond in the Seattle Japanese Garden surrounded by greenery">
-        </div>
         <div class="experience-dialog-summary">
-          <p>TODO: write a short summary of the Qumulo internship.</p>
+          <p>I moved to Seattle in the spring of my 5th year of college to do a SWE internship at Qumulo, working on their filesystem. I'd always wanted to learn more about distributed systems, networking, and infrastructure, and Qumulo was one of the best places to learn in a fast-paced environment.</p>
+          <p>Over my 3 months there, I shipped telemetry and performance improvements used by real Qumulo customers. I helped record connection statistics (socket connections and quorums) in C, visualized using Grafana, InfluxDB, and SQL. I also improved performance for customer workloads that were seeing regressions when writing to many small files, building a metadata prefetcher to reduce permission contention — using multi-threading, RPCs, and knowledge of filesystem protocols like NFS and SMB.</p>
+          <p>I enjoyed my time in Seattle too, both reconnecting with old friends and meeting new people also working in tech.</p>
+        </div>
+        <div class="experience-dialog-photos">
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/qumulo-2026-0.jpg" alt="Evening view of the Seattle skyline and a boat on Lake Union"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/qumulo-2026-1.jpg" alt="A seagull perched on an office window ledge overlooking Seattle"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/qumulo-2026-2.jpg" alt="A pond in the Seattle Japanese Garden surrounded by greenery"></button>
         </div>
       </dialog>
 
       <dialog class="experience-dialog" id="experience-amd-2" aria-labelledby="experience-amd-2-title">
         <button type="button" class="experience-dialog-close" aria-label="Close">&times;</button>
         <h3 class="experience-dialog-title" id="experience-amd-2-title">AMD &middot; System Software Engineer Intern (Jun &ndash; Sep 2026)</h3>
-        <div class="experience-dialog-photos">
-          <img src="assets/images/experiences/amd-2026-0.jpg" alt="Wildflowers silhouetted at sunset over a river with people floating on tubes">
-          <img src="assets/images/experiences/amd-2026-1.jpg" alt="Two trays of street tacos with Mexican Coca-Colas on a picnic table">
-          <img src="assets/images/experiences/amd-2026-2.jpg" alt="Texas barbecue plates with brisket and sausage at a restaurant table">
-        </div>
         <div class="experience-dialog-summary">
-          <p>TODO: write a short summary of the 2026 AMD internship.</p>
+          <p>I came back to Austin that summer to do another internship with the same team. This time, I worked on AI tools to give developers a better experience and speed up validation workflows that previously took too much time.</p>
+          <p>I built a VS Code extension in TypeScript, Node.js, and React to tie together different AI tools my organization has built for unit testing, giving developers a more seamless experience setting up their environment and using new features.</p>
+          <p>I also built an AI agent in Python to automatically update register definitions in our codebase for the NBIO IP — the agent is responsible for validating that registers are added correctly, that the build still works, and that logic using those registers isn't affected.</p>
+          <p>Lastly, I built a Claude skill to integrate new Tianocore/EDK2 kernel releases into our existing BIOS codebases, letting an agent analyze the new release against the old one, fix compiler errors, and produce the binaries needed to run boot tests in an organized way.</p>
         </div>
+        <div class="experience-dialog-photos">
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/amd-2026-0.jpg" alt="Wildflowers silhouetted at sunset over a river with people floating on tubes"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/amd-2026-1.jpg" alt="Two trays of street tacos with Mexican Coca-Colas on a picnic table"></button>
+          <button type="button" class="photo-trigger" aria-haspopup="dialog"><img src="assets/images/experiences/amd-2026-2.jpg" alt="Texas barbecue plates with brisket and sausage at a restaurant table"></button>
+        </div>
+      </dialog>
+
+      <dialog class="photo-lightbox" id="photo-lightbox" aria-label="Enlarged photo">
+        <button type="button" class="experience-dialog-close" aria-label="Close">&times;</button>
+        <img id="photo-lightbox-img" alt="">
       </dialog>
 
       <!--

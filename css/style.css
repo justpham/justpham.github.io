@@ -558,18 +558,6 @@ header nav a:focus-visible {
   color: var(--color-text);
 }
 
-.experience-dialog-photos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.experience-dialog-photos img {
-  max-width: 100%;
-  border-radius: 6px;
-}
-
 .experience-dialog-summary p {
   margin: 0;
   color: var(--color-text-secondary);
@@ -578,6 +566,112 @@ header nav a:focus-visible {
 
 .experience-dialog-summary p + p {
   margin-top: 0.75rem;
+}
+
+/* Masonry via CSS multi-column layout rather than a JS grid library: each
+   photo-trigger is `break-inside: avoid` so a photo never gets split
+   across columns, and columns naturally pack photos of differing aspect
+   ratios tightly with no gaps, which a plain flex/grid row can't do
+   without knowing every image's height up front. Single column below
+   480px, matching the timeline's own narrow-viewport breakpoint — two
+   columns get too thin to read once the dialog's own width (90vw) drops
+   with the viewport. */
+.experience-dialog-photos {
+  column-count: 2;
+  column-gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .experience-dialog-photos {
+    column-count: 1;
+  }
+}
+
+/* Real <button> wrapping each <img> (rather than a click handler on the
+   image itself) so the lightbox trigger is keyboard-operable for free —
+   no role/tabindex/keydown wiring needed, unlike .timeline-card above. */
+.photo-trigger {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 0.6rem;
+  padding: 0;
+  border: none;
+  background: none;
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: opacity 0.15s ease;
+}
+
+.photo-trigger img {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.photo-trigger:hover,
+.photo-trigger:focus-visible {
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .photo-trigger {
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .photo-trigger:hover,
+  .photo-trigger:focus-visible {
+    transform: scale(1.03);
+  }
+}
+
+/* Shared lightbox dialog (js/experience-dialog.js swaps its <img> src/alt
+   per click): no `width` constraint beyond a max, so it shrink-wraps to
+   each photo's own size instead of forcing every photo into one fixed
+   frame regardless of aspect ratio. Like .experience-dialog, no `position`
+   override — see the comment above it for why that matters. */
+.photo-lightbox {
+  max-width: 92vw;
+  max-height: 92vh;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.photo-lightbox::backdrop {
+  background: rgba(34, 34, 59, 0.75);
+}
+
+.photo-lightbox img {
+  display: block;
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 8px;
+}
+
+.photo-lightbox .experience-dialog-close {
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(34, 34, 59, 0.55);
+  border-radius: 50%;
+}
+
+.photo-lightbox .experience-dialog-close:hover,
+.photo-lightbox .experience-dialog-close:focus-visible {
+  color: #fff;
+  background: rgba(34, 34, 59, 0.8);
 }
 
 .icon-list {

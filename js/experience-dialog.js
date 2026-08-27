@@ -1,7 +1,9 @@
 // Experience & Education timeline: the four cards with a data-dialog-target
 // (Intel, both AMD internships, Qumulo) become clickable cards that open a
 // matching <dialog> (native <dialog> already handles Escape-to-close, focus
-// trapping, and restoring focus to the trigger on close).
+// trapping, and restoring focus to the trigger on close). Photos inside any
+// open experience dialog are themselves buttons (.photo-trigger) that open
+// a second, shared lightbox dialog on top of the first at full size.
 
 (function () {
   const cards = document.querySelectorAll('.timeline-card[data-dialog-target]');
@@ -35,4 +37,29 @@
       if (event.target === dialog) dialog.close();
     });
   });
+
+  const lightbox = document.getElementById('photo-lightbox');
+  const lightboxImg = document.getElementById('photo-lightbox-img');
+
+  if (lightbox && lightboxImg) {
+    document.querySelectorAll('.photo-trigger').forEach((trigger) => {
+      const img = trigger.querySelector('img');
+      if (!img) return;
+
+      trigger.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.showModal();
+      });
+    });
+
+    const lightboxCloseBtn = lightbox.querySelector('.experience-dialog-close');
+    if (lightboxCloseBtn) {
+      lightboxCloseBtn.addEventListener('click', () => lightbox.close());
+    }
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+  }
 })();
