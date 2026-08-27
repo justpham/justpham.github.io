@@ -448,14 +448,40 @@ header nav a:focus-visible {
   min-width: 0;
 }
 
-.timeline-link {
-  color: var(--color-accent);
-  text-decoration: none;
+/* Cards for the four experiences with a detail popup (Intel, both AMD
+   internships, Qumulo — see js/experience-dialog.js) get an is-clickable
+   class at runtime, only once JS has confirmed a matching dialog exists.
+   The hover/focus background lives directly on .timeline-card rather than
+   a z-index-escaping ::before overlay (an earlier version of this used
+   one, but .timeline-item never establishes its own stacking context, so
+   the negative z-index needed to tuck it behind the card's text/logo
+   escaped all the way to the page root and never painted visibly). The
+   border-right is a separate, permanent affordance (not just on hover)
+   marking these four as the ones with more info behind them — placed on
+   the trailing edge (the end of the card's text reads as "there's more"),
+   with its two right corners squared off so the accent reads as one
+   straight line down the card's edge instead of curving away with the
+   rest of the card's rounded corners. Padding gives the hover/focus tint
+   some breathing room beyond the logo/title text, and the matching
+   negative margin (adjusted on the right to also account for the
+   border-right width) cancels that padding back out of the box model so
+   the logo/title still line up with the non-clickable rows above and
+   below. */
+.timeline-card.is-clickable {
+  padding: 0.5rem 0.75rem;
+  margin: -0.5rem -0.75rem;
+  border-right: 3px solid var(--color-lavender);
+  margin-right: calc(-0.75rem - 3px);
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
-.timeline-link:hover,
-.timeline-link:focus-visible {
-  text-decoration: underline;
+.timeline-card.is-clickable:hover,
+.timeline-card.is-clickable:focus-visible {
+  background-color: rgba(180, 151, 214, 0.15);
 }
 
 /* Below this width there isn't room for date + rail + card side by side
@@ -475,6 +501,83 @@ header nav a:focus-visible {
     text-align: left;
     font-size: 1.08rem;
   }
+}
+
+/* Experience detail popups (native <dialog>, one per eligible timeline
+   entry): showModal()/close() give focus trapping, Escape-to-close, and
+   focus restoration to the trigger for free, so the JS only wires up
+   showModal/close and a backdrop-click handler. */
+/* No `position` override here on purpose: the UA stylesheet already gives
+   an open <dialog> `position: fixed` with auto margins to center it in the
+   viewport regardless of scroll offset. An earlier version of this set
+   `position: relative`, which overrode that default — dropping the dialog
+   out of the fixed/centered top-layer placement and into its normal
+   in-flow position partway down the page instead, which is what caused
+   opening a popup to visibly jump/scroll the page. `position: fixed` also
+   still establishes a containing block, so .experience-dialog-close below
+   anchors to the dialog correctly without any position rule needed here. */
+.experience-dialog {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: none;
+  border-radius: 8px;
+  padding: 2rem 1.75rem 1.75rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 12px 40px rgba(34, 34, 59, 0.25);
+}
+
+.experience-dialog::backdrop {
+  background: rgba(34, 34, 59, 0.55);
+}
+
+.experience-dialog-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.experience-dialog-close:hover,
+.experience-dialog-close:focus-visible {
+  color: var(--color-darkest);
+}
+
+.experience-dialog-title {
+  margin: 0 0 1rem;
+  padding-right: 1.5rem;
+  color: var(--color-text);
+}
+
+.experience-dialog-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.experience-dialog-photos img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.experience-dialog-summary p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.experience-dialog-summary p + p {
+  margin-top: 0.75rem;
 }
 
 .icon-list {
