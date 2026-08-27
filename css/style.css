@@ -577,6 +577,16 @@ header nav a:focus-visible {
   color: var(--color-text);
 }
 
+.experience-dialog-title a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.experience-dialog-title a:hover,
+.experience-dialog-title a:focus-visible {
+  text-decoration: underline;
+}
+
 .experience-dialog-summary p {
   margin: 0;
   color: var(--color-text-secondary);
