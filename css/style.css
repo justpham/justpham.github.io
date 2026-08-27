@@ -518,8 +518,8 @@ header nav a:focus-visible {
    anchors to the dialog correctly without any position rule needed here. */
 .experience-dialog {
   box-sizing: border-box;
-  width: 90%;
-  max-width: 600px;
+  width: 70%;
+  max-width: 1000px;
   max-height: 85vh;
   overflow-y: auto;
   border: none;
