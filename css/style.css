@@ -285,6 +285,7 @@ header nav a:focus-visible {
 }
 
 .about-timeline,
+.about-skills,
 .about-tech {
   margin-top: 2rem;
 }
@@ -294,13 +295,31 @@ header nav a:focus-visible {
 }
 
 .about-timeline h2,
+.about-skills h2,
 .about-tech h3 {
   margin: 0 0 0.75rem;
 }
 
 /* Matches the #about/#career-journey/#projects h2 rendered size (2.25rem). */
-.about-timeline h2 {
+.about-timeline h2,
+.about-skills h2 {
   font-size: 2.25rem;
+}
+
+/* Reuses .project-tags/.project-tech/.project-topics from the Projects
+   section as-is (same pill look) rather than inventing a second tag
+   style — the two skill-pill variants (solid/outlined) mean the same
+   thing here (tools/languages vs. broader concepts) as they do there
+   (specific tech vs. topic). */
+.skills-group + .skills-group {
+  margin-top: 1.25rem;
+}
+
+.skills-group-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
 }
 
 .timeline-legend {
