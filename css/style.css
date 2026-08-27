@@ -141,6 +141,7 @@ header nav a:focus-visible {
 
 #hero,
 #about,
+#skills,
 #projects,
 #experience-education,
 #career-journey {
@@ -150,6 +151,7 @@ header nav a:focus-visible {
 @media (max-width: 560px) {
   #hero,
   #about,
+  #skills,
   #projects,
   #experience-education,
   #career-journey {
@@ -160,6 +162,7 @@ header nav a:focus-visible {
 @media (max-width: 380px) {
   #hero,
   #about,
+  #skills,
   #projects,
   #experience-education,
   #career-journey {
